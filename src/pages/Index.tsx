@@ -250,8 +250,12 @@ const Index = () => {
           <Card className="bg-gradient-to-br from-primary/10 to-secondary/10 border-primary/30 max-w-4xl mx-auto">
             <CardContent className="p-8 md:flex items-center gap-8">
               <div className="flex-shrink-0 mb-6 md:mb-0">
-                <div className="w-32 h-32 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-                  <Icon name="User" size={64} />
+                <div className="w-40 h-40 rounded-full overflow-hidden border-4 border-primary/50 shadow-2xl shadow-primary/30">
+                  <img 
+                    src="/sergey-chernikov.jpg" 
+                    alt="Сергей Черников" 
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </div>
               <div className="flex-grow">
