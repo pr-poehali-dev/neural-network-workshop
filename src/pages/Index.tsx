@@ -410,20 +410,14 @@ const Index = () => {
                 {
                   name: 'Михаил Петров',
                   role: 'CEO интернет-магазина',
-                  videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+                  videoUrl: 'https://rutube.ru/video/76d44642d8ebf4e04cfcc823561b4fe0/',
                   thumbnail: 'https://cdn.poehali.dev/projects/aff0e44d-d3b8-409d-a0c0-47792caed443/files/e46208d2-e5b0-454f-a40f-240683fa3ad4.jpg'
                 },
                 {
                   name: 'Ольга Смирнова',
                   role: 'Маркетолог',
-                  videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+                  videoUrl: 'https://rutube.ru/video/2c2bfd77a6c9d06d8bbd1cf4f195f987/',
                   thumbnail: 'https://cdn.poehali.dev/projects/aff0e44d-d3b8-409d-a0c0-47792caed443/files/83668a56-1b7a-4bdb-9cc2-233718af28b1.jpg'
-                },
-                {
-                  name: 'Игорь Васильев',
-                  role: 'Директор по продажам',
-                  videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-                  thumbnail: 'https://cdn.poehali.dev/projects/aff0e44d-d3b8-409d-a0c0-47792caed443/files/e46208d2-e5b0-454f-a40f-240683fa3ad4.jpg'
                 }
               ].map((item, idx) => (
                 <CarouselItem key={idx} className="md:basis-1/2 lg:basis-1/2">
@@ -436,11 +430,16 @@ const Index = () => {
                             alt={item.name}
                             className="w-full h-full object-cover"
                           />
-                          <div className="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/30 transition-colors">
+                          <a 
+                            href={item.videoUrl} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/30 transition-colors"
+                          >
                             <div className="w-16 h-16 rounded-full bg-primary/90 flex items-center justify-center group-hover:scale-110 transition-transform cursor-pointer">
                               <Icon name="Play" size={32} className="text-background ml-1" />
                             </div>
-                          </div>
+                          </a>
                           <div className="absolute top-4 right-4 bg-secondary/90 text-background px-3 py-1 rounded-full text-sm font-semibold">
                             <Icon name="Video" size={16} className="inline mr-1" />
                             2:30
