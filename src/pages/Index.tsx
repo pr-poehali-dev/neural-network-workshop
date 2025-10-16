@@ -152,11 +152,18 @@ const Index = () => {
             </div>
             <div className="relative">
               <div className="bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl p-8 backdrop-blur">
-                <Icon name="TrendingDown" size={64} className="text-primary mb-4" />
+                <Icon name="TrendingDown" size={64} className="text-primary mb-4 animate-arrow-down" />
                 <div className="space-y-4">
                   {['Ручной анализ данных', 'Рутинная отчётность', 'Медленные процессы'].map((item, idx) => (
-                    <div key={idx} className="flex items-center gap-3 text-lg">
-                      <Icon name="X" className="text-destructive" />
+                    <div key={idx} className="flex items-center gap-3 text-lg group">
+                      <div className="relative">
+                        <Icon name="X" className="text-destructive" />
+                        <Icon 
+                          name="Skull" 
+                          size={24}
+                          className="absolute -top-1 -right-1 text-red-600 opacity-0 group-hover:opacity-100 group-hover:animate-skull-appear" 
+                        />
+                      </div>
                       <span>{item}</span>
                     </div>
                   ))}
