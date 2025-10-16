@@ -409,14 +409,14 @@ const Index = () => {
               <div className="space-y-2 text-muted-foreground">
                 <div className="flex items-center gap-2">
                   <Icon name="Mail" size={18} />
-                  <a href="mailto:info@nnschool.ru" className="hover:text-primary transition-colors">
-                    info@nnschool.ru
+                  <a href="mailto:chernikovru@yandex.ru" className="hover:text-primary transition-colors">
+                    chernikovru@yandex.ru
                   </a>
                 </div>
                 <div className="flex items-center gap-2">
                   <Icon name="Phone" size={18} />
-                  <a href="tel:+79991234567" className="hover:text-primary transition-colors">
-                    +7 999 123-45-67
+                  <a href="tel:+79811292499" className="hover:text-primary transition-colors">
+                    +7 981 129-24-99
                   </a>
                 </div>
               </div>
@@ -425,14 +425,14 @@ const Index = () => {
             <div>
               <h3 className="font-bold mb-4">Социальные сети</h3>
               <div className="flex gap-4">
-                {['MessageCircle', 'Send', 'Instagram'].map((icon) => (
-                  <button
-                    key={icon}
-                    className="w-10 h-10 rounded-full bg-primary/20 hover:bg-primary/30 flex items-center justify-center transition-colors"
-                  >
-                    <Icon name={icon} size={20} />
-                  </button>
-                ))}
+                <a
+                  href="https://t.me/chernikovgpt"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-full bg-primary/20 hover:bg-primary/30 flex items-center justify-center transition-colors"
+                >
+                  <Icon name="Send" size={20} />
+                </a>
               </div>
             </div>
           </div>
