@@ -20,6 +20,7 @@ import MatrixBackground from '@/components/MatrixBackground';
 const Index = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+  const [playingVideo, setPlayingVideo] = useState<number | null>(null);
 
   useEffect(() => {
     setIsVisible(true);
@@ -430,16 +431,24 @@ const Index = () => {
                             alt={item.name}
                             className="w-full h-full object-cover"
                           />
-                          <a 
-                            href={item.videoUrl} 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                            className="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/30 transition-colors"
-                          >
-                            <div className="w-16 h-16 rounded-full bg-primary/90 flex items-center justify-center group-hover:scale-110 transition-transform cursor-pointer">
-                              <Icon name="Play" size={32} className="text-background ml-1" />
+                          {playingVideo === idx ? (
+                            <iframe
+                              src={`https://rutube.ru/play/embed/${item.videoUrl.split('/video/')[1].replace('/', '')}`}
+                              frameBorder="0"
+                              allow="clipboard-write; autoplay"
+                              allowFullScreen
+                              className="w-full h-full"
+                            />
+                          ) : (
+                            <div 
+                              onClick={() => setPlayingVideo(idx)}
+                              className="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/30 transition-colors cursor-pointer"
+                            >
+                              <div className="w-16 h-16 rounded-full bg-primary/90 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                <Icon name="Play" size={32} className="text-background ml-1" />
+                              </div>
                             </div>
-                          </a>
+                          )}
                           <div className="absolute top-4 right-4 bg-secondary/90 text-background px-3 py-1 rounded-full text-sm font-semibold">
                             <Icon name="Video" size={16} className="inline mr-1" />
                             2:30
