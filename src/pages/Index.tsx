@@ -276,9 +276,21 @@ const Index = () => {
           
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { name: 'Анна С.', text: 'Потрясающий опыт! Реальные инструменты и кейсы, которые можно применить сразу.' },
-              { name: 'Дмитрий К.', text: 'Конкретные решения для моего бизнеса — сразу внедрил автоматизацию отчётов.' },
-              { name: 'Елена М.', text: 'Отличный мастер-класс, всё по делу и бесплатно! Рекомендую всем.' }
+              { 
+                name: 'Анна С.', 
+                text: 'Потрясающий опыт! Реальные инструменты и кейсы, которые можно применить сразу.',
+                photo: 'https://cdn.poehali.dev/projects/aff0e44d-d3b8-409d-a0c0-47792caed443/files/83668a56-1b7a-4bdb-9cc2-233718af28b1.jpg'
+              },
+              { 
+                name: 'Дмитрий К.', 
+                text: 'Конкретные решения для моего бизнеса — сразу внедрил автоматизацию отчётов.',
+                photo: 'https://cdn.poehali.dev/projects/aff0e44d-d3b8-409d-a0c0-47792caed443/files/e46208d2-e5b0-454f-a40f-240683fa3ad4.jpg'
+              },
+              { 
+                name: 'Елена М.', 
+                text: 'Отличный мастер-класс, всё по делу и бесплатно! Рекомендую всем.',
+                photo: 'https://cdn.poehali.dev/projects/aff0e44d-d3b8-409d-a0c0-47792caed443/files/6eff4a4b-efc7-4684-9037-6d87ee1b538e.jpg'
+              }
             ].map((item, idx) => (
               <Card key={idx} className="bg-card/50 backdrop-blur border-secondary/30">
                 <CardContent className="p-6 space-y-4">
@@ -289,8 +301,12 @@ const Index = () => {
                   </div>
                   <p className="text-muted-foreground italic">"{item.text}"</p>
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-                      <Icon name="User" size={20} />
+                    <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-secondary/50">
+                      <img 
+                        src={item.photo} 
+                        alt={item.name} 
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                     <div className="font-semibold">{item.name}</div>
                   </div>
