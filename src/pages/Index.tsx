@@ -7,6 +7,13 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel';
 import Icon from '@/components/ui/icon';
 import MatrixBackground from '@/components/MatrixBackground';
 
@@ -382,6 +389,91 @@ const Index = () => {
                 <span className="text-lg">Бесплатная консультация после МК</span>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="video-testimonials" className="py-20">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">Видео-отзывы участников</h2>
+          <p className="text-center text-muted-foreground mb-12">Реальные истории людей, изменивших свой бизнес</p>
+          
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full max-w-6xl mx-auto"
+          >
+            <CarouselContent>
+              {[
+                {
+                  name: 'Михаил Петров',
+                  role: 'CEO интернет-магазина',
+                  videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+                  thumbnail: 'https://cdn.poehali.dev/projects/aff0e44d-d3b8-409d-a0c0-47792caed443/files/e46208d2-e5b0-454f-a40f-240683fa3ad4.jpg'
+                },
+                {
+                  name: 'Ольга Смирнова',
+                  role: 'Маркетолог',
+                  videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+                  thumbnail: 'https://cdn.poehali.dev/projects/aff0e44d-d3b8-409d-a0c0-47792caed443/files/83668a56-1b7a-4bdb-9cc2-233718af28b1.jpg'
+                },
+                {
+                  name: 'Игорь Васильев',
+                  role: 'Директор по продажам',
+                  videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+                  thumbnail: 'https://cdn.poehali.dev/projects/aff0e44d-d3b8-409d-a0c0-47792caed443/files/e46208d2-e5b0-454f-a40f-240683fa3ad4.jpg'
+                }
+              ].map((item, idx) => (
+                <CarouselItem key={idx} className="md:basis-1/2 lg:basis-1/2">
+                  <div className="p-2">
+                    <Card className="bg-card/50 backdrop-blur border-primary/30 hover:border-primary transition-colors overflow-hidden group">
+                      <CardContent className="p-0">
+                        <div className="relative aspect-video bg-muted">
+                          <img 
+                            src={item.thumbnail} 
+                            alt={item.name}
+                            className="w-full h-full object-cover"
+                          />
+                          <div className="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/30 transition-colors">
+                            <div className="w-16 h-16 rounded-full bg-primary/90 flex items-center justify-center group-hover:scale-110 transition-transform cursor-pointer">
+                              <Icon name="Play" size={32} className="text-background ml-1" />
+                            </div>
+                          </div>
+                          <div className="absolute top-4 right-4 bg-secondary/90 text-background px-3 py-1 rounded-full text-sm font-semibold">
+                            <Icon name="Video" size={16} className="inline mr-1" />
+                            2:30
+                          </div>
+                        </div>
+                        <div className="p-6">
+                          <h3 className="text-xl font-bold mb-1">{item.name}</h3>
+                          <p className="text-muted-foreground text-sm">{item.role}</p>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="hidden md:flex -left-12 bg-primary/20 border-primary/50 hover:bg-primary/30" />
+            <CarouselNext className="hidden md:flex -right-12 bg-primary/20 border-primary/50 hover:bg-primary/30" />
+          </Carousel>
+
+          <div className="text-center mt-12">
+            <p className="text-muted-foreground mb-4">
+              Хотите узнать больше историй успеха?
+            </p>
+            <Button 
+              variant="outline" 
+              className="border-secondary/50 hover:bg-secondary/10"
+              asChild
+            >
+              <a href="https://t.me/chernikovgpt" target="_blank" rel="noopener noreferrer">
+                <Icon name="MessageCircle" className="mr-2" />
+                Присоединяйтесь к сообществу
+              </a>
+            </Button>
           </div>
         </div>
       </section>
