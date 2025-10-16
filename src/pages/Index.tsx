@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
 import {
   Accordion,
   AccordionContent,
@@ -10,12 +8,10 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import Icon from '@/components/ui/icon';
-import { useToast } from '@/hooks/use-toast';
 
 const Index = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-  const { toast } = useToast();
 
   useEffect(() => {
     setIsVisible(true);
@@ -40,21 +36,6 @@ const Index = () => {
 
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    const name = formData.get('name');
-    const email = formData.get('email');
-    const phone = formData.get('phone');
-    
-    toast({
-      title: "Заявка отправлена!",
-      description: `Спасибо, ${name}! Мы свяжемся с вами в ближайшее время.`,
-    });
-    
-    e.currentTarget.reset();
   };
 
   return (
@@ -119,10 +100,12 @@ const Index = () => {
           <Button 
             size="lg" 
             className="text-lg px-8 py-6 animate-pulse-glow bg-primary hover:bg-primary/90"
-            onClick={() => scrollToSection('register')}
+            asChild
           >
-            Зарегистрироваться бесплатно
-            <Icon name="ArrowRight" className="ml-2" />
+            <a href="https://t.me/chernikovpsiholog" target="_blank" rel="noopener noreferrer">
+              Зарегистрироваться бесплатно
+              <Icon name="ArrowRight" className="ml-2" />
+            </a>
           </Button>
           
           <div className="mt-8 flex items-center justify-center gap-4 text-sm text-muted-foreground">
@@ -368,65 +351,25 @@ const Index = () => {
       </section>
 
       <section id="register" className="py-20 bg-gradient-to-br from-primary/20 via-background to-secondary/20">
-        <div className="container mx-auto px-4 max-w-2xl">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Регистрация на мастер-класс</h2>
-            <p className="text-xl text-muted-foreground">Осталось всего несколько мест!</p>
-          </div>
-
-          <Card className="bg-card/80 backdrop-blur border-primary/30">
-            <CardContent className="p-8">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <Label htmlFor="name" className="text-lg">Имя</Label>
-                  <Input 
-                    id="name" 
-                    name="name" 
-                    placeholder="Ваше имя" 
-                    required 
-                    className="mt-2 bg-background/50"
-                  />
-                </div>
-                
-                <div>
-                  <Label htmlFor="email" className="text-lg">Email</Label>
-                  <Input 
-                    id="email" 
-                    name="email" 
-                    type="email" 
-                    placeholder="example@mail.com" 
-                    required 
-                    className="mt-2 bg-background/50"
-                  />
-                </div>
-                
-                <div>
-                  <Label htmlFor="phone" className="text-lg">Телефон</Label>
-                  <Input 
-                    id="phone" 
-                    name="phone" 
-                    type="tel" 
-                    placeholder="+7 999 123-45-67" 
-                    required 
-                    className="mt-2 bg-background/50"
-                  />
-                </div>
-
-                <Button 
-                  type="submit" 
-                  size="lg" 
-                  className="w-full text-lg py-6 animate-pulse-glow bg-primary hover:bg-primary/90"
-                >
-                  Зарегистрироваться бесплатно
-                  <Icon name="CheckCircle" className="ml-2" />
-                </Button>
-              </form>
-
-              <div className="mt-6 text-center text-sm text-muted-foreground">
-                Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
-              </div>
-            </CardContent>
-          </Card>
+        <div className="container mx-auto px-4 max-w-2xl text-center">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">Регистрация на мастер-класс</h2>
+          <p className="text-xl text-muted-foreground mb-8">Осталось всего несколько мест!</p>
+          
+          <Button 
+            size="lg" 
+            className="text-lg px-12 py-8 animate-pulse-glow bg-primary hover:bg-primary/90"
+            asChild
+          >
+            <a href="https://t.me/chernikovpsiholog" target="_blank" rel="noopener noreferrer">
+              <Icon name="Send" className="mr-2" size={24} />
+              Зарегистрироваться через Telegram
+              <Icon name="ArrowRight" className="ml-2" />
+            </a>
+          </Button>
+          
+          <p className="mt-6 text-sm text-muted-foreground">
+            Нажмите кнопку, чтобы перейти в Telegram и зарегистрироваться
+          </p>
         </div>
       </section>
 
