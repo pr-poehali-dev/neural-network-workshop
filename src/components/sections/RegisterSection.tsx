@@ -49,12 +49,12 @@ const RegisterSection = () => {
             </div>
             <Button 
               size="lg" 
-              className="text-lg md:text-xl px-8 py-6 md:px-12 md:py-8 animate-pulse-glow bg-primary hover:bg-primary/90"
+              className="text-base md:text-xl px-6 py-6 md:px-12 md:py-8 animate-pulse-glow bg-primary hover:bg-primary/90 w-full sm:w-auto"
               asChild
             >
-              <a href="https://t.me/chernikovpsiholog" target="_blank" rel="noopener noreferrer">
+              <a href="https://t.me/chernikovpsiholog" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center">
                 Зарегистрироваться бесплатно
-                <Icon name="ArrowRight" className="ml-2" size={24} />
+                <Icon name="ArrowRight" className="ml-2" size={20} />
               </a>
             </Button>
             <p className="text-sm text-muted-foreground mt-6 flex items-center justify-center gap-2">
