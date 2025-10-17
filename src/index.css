@@ -132,3 +132,53 @@
     transform: scale(1.1);
   }
 }
+
+@keyframes brain-activate {
+  0% {
+    filter: drop-shadow(0 0 0px #ff6600);
+    opacity: 0.3;
+  }
+  50% {
+    filter: drop-shadow(0 0 20px #ff6600) drop-shadow(0 0 40px #ff6600);
+    opacity: 1;
+  }
+  100% {
+    filter: drop-shadow(0 0 10px #ff6600) drop-shadow(0 0 20px #ff6600);
+    opacity: 1;
+  }
+}
+
+@keyframes lightning-sparks {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 5px #ffff00) drop-shadow(2px 2px 8px #ffff00)
+      drop-shadow(-2px -2px 8px #ffff00);
+  }
+  50% {
+    filter: drop-shadow(0 0 15px #ffff00) drop-shadow(5px 5px 20px #ffff00)
+      drop-shadow(-5px -5px 20px #ffff00);
+  }
+}
+
+@keyframes wrench-rotate {
+  0%,
+  100% {
+    transform: rotate(-45deg);
+  }
+  50% {
+    transform: rotate(45deg);
+  }
+}
+
+@keyframes question-float {
+  0% {
+    filter: drop-shadow(0 0 5px #00ff99);
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    filter: drop-shadow(0 0 15px #00ff99);
+    transform: translate(20px, -20px) scale(0.5);
+    opacity: 0;
+  }
+}
