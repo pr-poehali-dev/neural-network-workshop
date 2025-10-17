@@ -1,8 +1,31 @@
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import Icon from '@/components/ui/icon';
 
 const RegisterSection = () => {
+  const [registered, setRegistered] = useState(0);
+  const [spotsLeft, setSpotsLeft] = useState(40);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setRegistered((prev) => {
+        if (prev < 40) {
+          return prev + 1;
+        }
+        return prev;
+      });
+      setSpotsLeft((prev) => {
+        if (prev > 0) {
+          return prev - 1;
+        }
+        return prev;
+      });
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section id="register" className="py-20">
       <div className="container mx-auto px-4">
@@ -17,11 +40,11 @@ const RegisterSection = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
               <div className="flex items-center gap-2 text-lg">
                 <Icon name="Users" className="text-primary" />
-                <span>Уже зарегистрировано: <strong>347 человек</strong></span>
+                <span>Уже зарегистрировано: <strong>{registered} человек</strong></span>
               </div>
               <div className="flex items-center gap-2 text-lg">
                 <Icon name="Clock" className="text-primary" />
-                <span>Осталось мест: <strong>53</strong></span>
+                <span>Осталось мест: <strong>{spotsLeft}</strong></span>
               </div>
             </div>
             <Button 
