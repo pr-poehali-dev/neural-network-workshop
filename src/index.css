@@ -119,3 +119,16 @@
     transform: scale(1) rotate(0deg);
   }
 }
+
+@keyframes neon-icon-pulse {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 5px #ff6600) drop-shadow(0 0 10px #ff6600);
+    transform: scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 15px #ff6600) drop-shadow(0 0 30px #ff6600)
+      drop-shadow(0 0 40px #ff6600);
+    transform: scale(1.1);
+  }
+}
