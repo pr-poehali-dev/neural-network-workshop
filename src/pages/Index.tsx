@@ -11,6 +11,7 @@ import TestimonialsSection from '@/components/sections/TestimonialsSection';
 import FAQSection from '@/components/sections/FAQSection';
 import RegisterSection from '@/components/sections/RegisterSection';
 import Footer from '@/components/sections/Footer';
+import WhatsAppButton from '@/components/WhatsAppButton';
 
 const Index = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -55,6 +56,7 @@ const Index = () => {
       <FAQSection />
       <RegisterSection />
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 };
