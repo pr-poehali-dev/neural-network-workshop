@@ -57,8 +57,30 @@ const RegisterSection = () => {
                 <Icon name="ArrowRight" className="ml-2" size={24} />
               </a>
             </Button>
-            <p className="text-sm text-muted-foreground mt-6">
-              После регистрации вы получите ссылку на онлайн-трансляцию и напоминание о мероприятии
+            <p className="text-sm text-muted-foreground mt-6 flex items-center justify-center gap-2">
+              <span>После регистрации вы мгновенно получите свой подарок</span>
+              <span className="relative inline-block">
+                <Icon 
+                  name="Gift" 
+                  size={20} 
+                  className="text-primary inline" 
+                  style={{ animation: 'gift-glow 2s ease-in-out infinite' }}
+                />
+                {[...Array(8)].map((_, i) => (
+                  <span
+                    key={i}
+                    className="absolute w-1 h-1 rounded-full"
+                    style={{
+                      backgroundColor: ['#ff6600', '#00ff99', '#ffff00', '#ff0099'][i % 4],
+                      animation: `confetti-pop 1.5s ease-out infinite ${i * 0.15}s`,
+                      '--x': `${Math.cos((i / 8) * Math.PI * 2) * 30}px`,
+                      '--y': `${Math.sin((i / 8) * Math.PI * 2) * 30}px`,
+                      left: '50%',
+                      top: '50%'
+                    } as React.CSSProperties}
+                  />
+                ))}
+              </span>
             </p>
           </CardContent>
         </Card>
