@@ -16,7 +16,13 @@ const HopeSection = () => {
                   'Оптимизация бизнес-процессов'
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3 text-lg">
-                    <Icon name="Check" className="text-secondary" />
+                    <Icon 
+                      name="Check" 
+                      className="text-secondary" 
+                      style={{ 
+                        animation: `check-appear 0.6s ease-out ${idx * 0.2}s both` 
+                      }} 
+                    />
                     <span>{item}</span>
                   </div>
                 ))}
