@@ -22,24 +22,24 @@ const MatrixSentinel = () => {
       style={{
         top: `${5 + scrollProgress * 0.85}%`,
         transform: `translateY(-50%) scale(${0.7 + scrollProgress / 180})`,
-        opacity: 0.2
+        opacity: 0.1
       }}
     >
       <div className="relative">
         <img 
-          src="https://cdn.poehali.dev/files/8a241011-2f0f-4e6a-875b-765f72f8ebed.jpeg"
-          alt="AI Assistant"
-          className="w-64 h-auto object-contain drop-shadow-2xl"
+          src="https://cdn.poehali.dev/files/87488e65-a37a-4e88-8abb-41615cec4599.png"
+          alt="Сергей Черников"
+          className="w-80 h-auto object-contain"
           style={{
-            filter: 'brightness(0.9) contrast(1.1)',
-            animation: 'float-android 6s ease-in-out infinite'
+            filter: 'drop-shadow(0 0 20px rgba(0, 255, 153, 0.6)) drop-shadow(0 0 40px rgba(0, 255, 153, 0.3))',
+            animation: 'float-logo 6s ease-in-out infinite'
           }}
         />
         
         <div 
-          className="absolute inset-0 bg-gradient-to-r from-cyan-500/30 to-purple-500/30 blur-xl"
+          className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 blur-2xl"
           style={{
-            animation: 'glow-pulse 3s ease-in-out infinite'
+            animation: 'glow-pulse 4s ease-in-out infinite'
           }}
         />
 
@@ -48,81 +48,49 @@ const MatrixSentinel = () => {
           style={{ mixBlendMode: 'screen' }}
         >
           <defs>
-            <linearGradient id="cyberGlow" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" style={{ stopColor: '#00ffff', stopOpacity: 0.8 }} />
-              <stop offset="50%" style={{ stopColor: '#ff00ff', stopOpacity: 0.6 }} />
-              <stop offset="100%" style={{ stopColor: '#00ffff', stopOpacity: 0.4 }} />
+            <linearGradient id="logoGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style={{ stopColor: '#00FF99', stopOpacity: 0.6 }} />
+              <stop offset="100%" style={{ stopColor: '#00CC77', stopOpacity: 0.3 }} />
             </linearGradient>
             
-            <filter id="neonGlow">
-              <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+            <filter id="softGlow">
+              <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
               <feMerge>
-                <feMergeNode in="coloredBlur"/>
                 <feMergeNode in="coloredBlur"/>
                 <feMergeNode in="SourceGraphic"/>
               </feMerge>
             </filter>
           </defs>
 
-          {[...Array(5)].map((_, i) => {
-            const startY = 20 + i * 15;
-            return (
-              <line
-                key={`scan-${i}`}
-                x1="0"
-                y1={`${startY}%`}
-                x2="100%"
-                y2={`${startY}%`}
-                stroke="url(#cyberGlow)"
-                strokeWidth="2"
-                opacity="0.4"
-                filter="url(#neonGlow)"
-              >
-                <animate
-                  attributeName="y1"
-                  values={`${startY}%;${startY + 60}%;${startY}%`}
-                  dur={`${4 + i * 0.5}s`}
-                  repeatCount="indefinite"
-                />
-                <animate
-                  attributeName="y2"
-                  values={`${startY}%;${startY + 60}%;${startY}%`}
-                  dur={`${4 + i * 0.5}s`}
-                  repeatCount="indefinite"
-                />
-                <animate
-                  attributeName="opacity"
-                  values="0.4;0.8;0.4"
-                  dur={`${4 + i * 0.5}s`}
-                  repeatCount="indefinite"
-                />
-              </line>
-            );
-          })}
-
-          {[...Array(8)].map((_, i) => {
-            const cx = 30 + (i % 4) * 20;
-            const cy = 20 + Math.floor(i / 4) * 60;
+          {[...Array(6)].map((_, i) => {
+            const angle = (i / 6) * Math.PI * 2;
+            const baseX = 50;
+            const baseY = 50;
+            const radius = 40;
+            const cx = baseX + Math.cos(angle) * radius;
+            const cy = baseY + Math.sin(angle) * radius;
+            
             return (
               <circle
-                key={`particle-${i}`}
+                key={`orbit-${i}`}
                 cx={`${cx}%`}
                 cy={`${cy}%`}
-                r="2"
-                fill="#00ffff"
-                opacity="0.6"
-                filter="url(#neonGlow)"
+                r="3"
+                fill="#00FF99"
+                opacity="0.5"
+                filter="url(#softGlow)"
               >
-                <animate
-                  attributeName="cy"
-                  values={`${cy}%;${cy + 40}%;${cy}%`}
-                  dur={`${3 + i * 0.3}s`}
+                <animateTransform
+                  attributeName="transform"
+                  type="rotate"
+                  values={`0 50 50; 360 50 50`}
+                  dur={`${8 + i}s`}
                   repeatCount="indefinite"
                 />
                 <animate
                   attributeName="opacity"
-                  values="0.6;1;0.6"
-                  dur={`${2 + i * 0.2}s`}
+                  values="0.5;1;0.5"
+                  dur={`${2 + i * 0.3}s`}
                   repeatCount="indefinite"
                 />
               </circle>
@@ -130,54 +98,54 @@ const MatrixSentinel = () => {
           })}
 
           <circle
-            cx="70%"
-            cy="25%"
-            r="3"
-            fill="#ff00ff"
-            filter="url(#neonGlow)"
+            cx="20%"
+            cy="20%"
+            r="2"
+            fill="#00FF99"
+            filter="url(#softGlow)"
           >
             <animate
-              attributeName="r"
-              values="3;5;3"
-              dur="2s"
+              attributeName="cy"
+              values="20%;80%;20%"
+              dur="5s"
               repeatCount="indefinite"
             />
             <animate
               attributeName="opacity"
-              values="0.8;1;0.8"
+              values="0.6;1;0.6"
               dur="2s"
               repeatCount="indefinite"
             />
           </circle>
 
           <circle
-            cx="75%"
-            cy="28%"
+            cx="80%"
+            cy="30%"
             r="2"
-            fill="#00ffff"
-            filter="url(#neonGlow)"
+            fill="#00CC77"
+            filter="url(#softGlow)"
           >
             <animate
-              attributeName="r"
-              values="2;4;2"
-              dur="1.8s"
+              attributeName="cy"
+              values="30%;70%;30%"
+              dur="6s"
               repeatCount="indefinite"
             />
             <animate
               attributeName="opacity"
-              values="0.7;1;0.7"
-              dur="1.8s"
+              values="0.5;1;0.5"
+              dur="2.5s"
               repeatCount="indefinite"
             />
           </circle>
         </svg>
 
-        {[...Array(3)].map((_, i) => (
+        {[...Array(2)].map((_, i) => (
           <div
             key={`glow-ring-${i}`}
-            className="absolute top-1/4 right-1/4 w-32 h-32 rounded-full border-2 border-cyan-400/20"
+            className="absolute top-1/2 left-1/4 w-40 h-40 rounded-full border border-primary/10"
             style={{
-              animation: `expand-ring ${3 + i}s ease-out infinite ${i * 0.8}s`,
+              animation: `expand-ring ${4 + i * 2}s ease-out infinite ${i * 1.5}s`,
               transformOrigin: 'center'
             }}
           />
@@ -185,39 +153,33 @@ const MatrixSentinel = () => {
       </div>
 
       <style>{`
-        @keyframes float-android {
+        @keyframes float-logo {
           0%, 100% {
-            transform: translateY(0px) rotate(0deg);
-          }
-          25% {
-            transform: translateY(-10px) rotate(-1deg);
+            transform: translateY(0px);
           }
           50% {
-            transform: translateY(-5px) rotate(0deg);
-          }
-          75% {
-            transform: translateY(-12px) rotate(1deg);
+            transform: translateY(-15px);
           }
         }
 
         @keyframes glow-pulse {
           0%, 100% {
-            opacity: 0.4;
+            opacity: 0.3;
             transform: scale(1);
           }
           50% {
-            opacity: 0.7;
-            transform: scale(1.1);
+            opacity: 0.6;
+            transform: scale(1.15);
           }
         }
 
         @keyframes expand-ring {
           0% {
-            transform: scale(0.5);
-            opacity: 0.6;
+            transform: scale(0.8);
+            opacity: 0.4;
           }
           100% {
-            transform: scale(2.5);
+            transform: scale(2.2);
             opacity: 0;
           }
         }
