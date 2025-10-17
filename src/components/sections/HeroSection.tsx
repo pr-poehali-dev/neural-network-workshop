@@ -73,9 +73,12 @@ const HeroSection = ({ isVisible, timeLeft }: HeroSectionProps) => {
       </div>
       
       <div className={`container mx-auto px-4 relative z-10 text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-        <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+        <h1 className="text-5xl md:text-7xl font-bold mb-2 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
           Нейросети для бизнеса
         </h1>
+        <div className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+          заработка и продвижения
+        </div>
         <p className="text-xl md:text-2xl mb-8 text-muted-foreground max-w-3xl mx-auto">
           Узнайте, как нейросети увеличивают продажи и экономят время: присоединяйтесь 21 октября в 19:00
         </p>
