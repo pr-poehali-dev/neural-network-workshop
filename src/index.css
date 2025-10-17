@@ -79,3 +79,16 @@
     opacity: 0.6;
   }
 }
+
+@keyframes neon-pulse {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 5px #ff0000) drop-shadow(0 0 10px #ff0000);
+    transform: scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 15px #ff0000) drop-shadow(0 0 30px #ff0000)
+      drop-shadow(0 0 40px #ff0000);
+    transform: scale(1.1);
+  }
+}

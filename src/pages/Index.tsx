@@ -226,7 +226,7 @@ const Index = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="relative order-2 md:order-1">
               <div className="bg-gradient-to-br from-destructive/20 to-primary/20 rounded-2xl p-8 backdrop-blur">
-                <Icon name="AlertTriangle" size={64} className="text-destructive mb-4" />
+                <Icon name="AlertTriangle" size={64} className="text-red-500 mb-4" style={{ animation: 'neon-pulse 2s ease-in-out infinite' }} />
                 <div className="space-y-4">
                   <div className="flex items-start gap-3">
                     <Icon name="TrendingDown" className="text-destructive mt-1 flex-shrink-0" />
