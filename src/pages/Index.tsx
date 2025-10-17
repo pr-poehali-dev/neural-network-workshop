@@ -12,6 +12,7 @@ import FAQSection from '@/components/sections/FAQSection';
 import RegisterSection from '@/components/sections/RegisterSection';
 import Footer from '@/components/sections/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
+import MatrixSentinel from '@/components/MatrixSentinel';
 
 const Index = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -43,7 +44,8 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background text-foreground relative">
+      <MatrixSentinel />
       <Header onNavigate={scrollToSection} />
       <HeroSection isVisible={isVisible} timeLeft={timeLeft} />
       <PainSection />
