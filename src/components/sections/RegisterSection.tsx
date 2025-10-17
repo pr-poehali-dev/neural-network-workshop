@@ -30,7 +30,7 @@ const RegisterSection = () => {
     <section id="register" className="py-20">
       <div className="container mx-auto px-4">
         <Card className="max-w-4xl mx-auto bg-gradient-to-br from-primary/20 to-secondary/20 border-primary/30">
-          <CardContent className="p-12 text-center">
+          <CardContent className="p-6 md:p-12 text-center">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               Не упустите возможность
             </h2>
@@ -49,7 +49,7 @@ const RegisterSection = () => {
             </div>
             <Button 
               size="lg" 
-              className="text-xl px-12 py-8 animate-pulse-glow bg-primary hover:bg-primary/90"
+              className="text-lg md:text-xl px-8 py-6 md:px-12 md:py-8 animate-pulse-glow bg-primary hover:bg-primary/90"
               asChild
             >
               <a href="https://t.me/chernikovpsiholog" target="_blank" rel="noopener noreferrer">
@@ -62,7 +62,7 @@ const RegisterSection = () => {
               <span className="relative inline-block">
                 <Icon 
                   name="Gift" 
-                  size={20} 
+                  size={24} 
                   className="text-primary inline" 
                   style={{ animation: 'gift-glow 2s ease-in-out infinite' }}
                 />

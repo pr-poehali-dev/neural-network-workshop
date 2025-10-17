@@ -8,7 +8,7 @@ const AboutSection = () => {
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
           Что вы получите на мастер-классе
         </h2>
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-6 md:gap-8">
           {[
             {
               icon: 'Lightbulb',
@@ -27,10 +27,10 @@ const AboutSection = () => {
             }
           ].map((item, idx) => (
             <Card key={idx} className="hover:shadow-xl transition-shadow bg-card/50 backdrop-blur">
-              <CardContent className="p-6">
+              <CardContent className="p-5 md:p-6">
                 <Icon 
                   name={item.icon as any} 
-                  size={48} 
+                  size={40} 
                   className="text-primary mb-4" 
                   style={{ 
                     animation: `neon-icon-pulse 2s ease-in-out infinite ${idx * 0.4}s` 

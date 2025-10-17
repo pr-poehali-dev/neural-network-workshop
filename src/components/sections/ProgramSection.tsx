@@ -47,12 +47,12 @@ const ProgramSection = () => {
 
             return (
               <Card key={idx} className="hover:border-primary transition-all bg-card/50 backdrop-blur">
-                <CardContent className="p-6 flex gap-6 items-start">
+                <CardContent className="p-4 md:p-6 flex gap-4 md:gap-6 items-start">
                   <div className="flex-shrink-0">
-                    <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center relative overflow-visible">
+                    <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-primary/10 flex items-center justify-center relative overflow-visible flex-shrink-0">
                       <Icon 
                         name={item.icon as any} 
-                        size={32} 
+                        size={24} 
                         className="text-primary" 
                         style={{ animation: getIconAnimation() }}
                       />

@@ -38,8 +38,8 @@ const FAQSection = () => {
         <div className="max-w-3xl mx-auto">
           <Accordion type="single" collapsible className="space-y-4">
             {faqs.map((faq, idx) => (
-              <AccordionItem key={idx} value={`item-${idx}`} className="bg-card/50 backdrop-blur border border-border rounded-lg px-6">
-                <AccordionTrigger className="text-lg font-semibold">
+              <AccordionItem key={idx} value={`item-${idx}`} className="bg-card/50 backdrop-blur border border-border rounded-lg px-4 md:px-6">
+                <AccordionTrigger className="text-base md:text-lg font-semibold leading-normal text-left">
                   {faq.question}
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground">

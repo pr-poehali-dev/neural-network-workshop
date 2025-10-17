@@ -35,7 +35,7 @@ const SpeakerSection = () => {
                 </p>
               </div>
 
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-4">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4 pt-4">
                 {[
                   { value: '7+', label: 'лет в IT' },
                   { value: '10K+', label: 'студентов' },
@@ -43,8 +43,8 @@ const SpeakerSection = () => {
                   { value: '6', label: 'направлений' }
                 ].map((stat, idx) => (
                   <Card key={idx} className="bg-card/50 backdrop-blur border-primary/30">
-                    <CardContent className="p-4 text-center">
-                      <div className="text-3xl font-bold text-primary mb-1">{stat.value}</div>
+                    <CardContent className="p-3 md:p-4 text-center">
+                      <div className="text-2xl md:text-3xl font-bold text-primary mb-1">{stat.value}</div>
                       <div className="text-sm text-muted-foreground">{stat.label}</div>
                     </CardContent>
                   </Card>
