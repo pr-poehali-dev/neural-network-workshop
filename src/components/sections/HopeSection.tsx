@@ -8,7 +8,7 @@ const HopeSection = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="relative">
             <div className="bg-gradient-to-br from-secondary/20 to-primary/20 rounded-2xl p-8 backdrop-blur">
-              <Icon name="TrendingUp" size={64} className="text-secondary mb-4" />
+              <Icon name="TrendingUp" size={64} className="text-secondary mb-4" style={{ animation: 'neon-green-pulse 2s ease-in-out infinite' }} />
               <div className="space-y-4">
                 {[
                   'Автоматизация анализа',

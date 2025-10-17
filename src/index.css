@@ -92,3 +92,16 @@
     transform: scale(1.1);
   }
 }
+
+@keyframes neon-green-pulse {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 5px #00ff99) drop-shadow(0 0 10px #00ff99);
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 15px #00ff99) drop-shadow(0 0 30px #00ff99)
+      drop-shadow(0 0 40px #00ff99);
+    transform: translateY(-10px) scale(1.15);
+  }
+}
