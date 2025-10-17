@@ -13,13 +13,11 @@ const SpeakerSection = () => {
               <div 
                 className="aspect-square rounded-3xl overflow-hidden relative"
                 style={{
-                  boxShadow: '0 20px 60px rgba(255, 102, 0, 0.3), 0 0 40px rgba(255, 102, 0, 0.2)',
-                  filter: 'drop-shadow(0 0 20px rgba(255, 102, 0, 0.4))'
+                  animation: 'speaker-glow 3s ease-in-out infinite'
                 }}
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 backdrop-blur" />
                 <img 
-                  src="https://cdn.poehali.dev/projects/aff0e44d-d3b8-409d-a0c0-47792caed443/files/e46208d2-e5b0-454f-a40f-240683fa3ad4.jpg" 
+                  src="https://cdn.poehali.dev/files/6286ecd8-d4f7-44f5-9116-785eb973cef7.png" 
                   alt="Черников Сергей"
                   className="w-full h-full object-cover"
                 />
