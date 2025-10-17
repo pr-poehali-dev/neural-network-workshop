@@ -18,211 +18,210 @@ const MatrixSentinel = () => {
 
   return (
     <div 
-      className="fixed left-1/2 pointer-events-none z-40 transition-all duration-500 ease-out"
+      className="fixed right-10 pointer-events-none z-40 transition-all duration-700 ease-out hidden lg:block"
       style={{
-        top: `${10 + scrollProgress * 0.8}%`,
-        transform: `translate(-50%, -50%) scale(${0.6 + scrollProgress / 150})`,
-        opacity: 0.3
+        top: `${5 + scrollProgress * 0.85}%`,
+        transform: `translateY(-50%) scale(${0.7 + scrollProgress / 180})`,
+        opacity: 0.2
       }}
     >
-      <svg
-        width="400"
-        height="500"
-        viewBox="0 0 400 500"
-        className="drop-shadow-2xl filter brightness-75 contrast-125"
-      >
-        <defs>
-          <linearGradient id="metalGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style={{ stopColor: '#2a2a2a', stopOpacity: 1 }} />
-            <stop offset="30%" style={{ stopColor: '#4a4a4a', stopOpacity: 1 }} />
-            <stop offset="60%" style={{ stopColor: '#3a3a3a', stopOpacity: 1 }} />
-            <stop offset="100%" style={{ stopColor: '#1a1a1a', stopOpacity: 1 }} />
-          </linearGradient>
+      <div className="relative">
+        <img 
+          src="https://cdn.poehali.dev/files/8a241011-2f0f-4e6a-875b-765f72f8ebed.jpeg"
+          alt="AI Assistant"
+          className="w-64 h-auto object-contain drop-shadow-2xl"
+          style={{
+            filter: 'brightness(0.9) contrast(1.1)',
+            animation: 'float-android 6s ease-in-out infinite'
+          }}
+        />
+        
+        <div 
+          className="absolute inset-0 bg-gradient-to-r from-cyan-500/30 to-purple-500/30 blur-xl"
+          style={{
+            animation: 'glow-pulse 3s ease-in-out infinite'
+          }}
+        />
 
-          <radialGradient id="eyeGlow">
-            <stop offset="0%" style={{ stopColor: '#ff0000', stopOpacity: 1 }} />
-            <stop offset="50%" style={{ stopColor: '#cc0000', stopOpacity: 0.8 }} />
-            <stop offset="100%" style={{ stopColor: '#880000', stopOpacity: 0.3 }} />
-          </radialGradient>
-
-          <filter id="metallic">
-            <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
-            <feOffset dx="2" dy="2" result="offsetblur"/>
-            <feComponentTransfer>
-              <feFuncA type="linear" slope="0.5"/>
-            </feComponentTransfer>
-            <feMerge>
-              <feMergeNode/>
-              <feMergeNode in="SourceGraphic"/>
-            </feMerge>
-          </filter>
-
-          <filter id="redGlow">
-            <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
-            <feMerge>
-              <feMergeNode in="coloredBlur"/>
-              <feMergeNode in="coloredBlur"/>
-              <feMergeNode in="SourceGraphic"/>
-            </feMerge>
-          </filter>
-        </defs>
-
-        <g filter="url(#metallic)">
-          <ellipse cx="200" cy="100" rx="80" ry="50" fill="url(#metalGradient)">
-            <animate attributeName="ry" values="50;52;50" dur="2s" repeatCount="indefinite" />
-          </ellipse>
-
-          <rect x="160" y="95" width="80" height="15" rx="3" fill="#3a3a3a"/>
-          <rect x="165" y="98" width="70" height="9" rx="2" fill="#2a2a2a"/>
-
-          {[...Array(12)].map((_, i) => {
-            const angle = (i / 12) * Math.PI * 2;
-            const x = 200 + Math.cos(angle) * 65;
-            const y = 100 + Math.sin(angle) * 42;
-            return (
-              <g key={`eye-${i}`}>
-                <circle cx={x} cy={y} r="8" fill="#1a1a1a" />
-                <circle cx={x} cy={y} r="5" fill="url(#eyeGlow)" filter="url(#redGlow)">
-                  <animate 
-                    attributeName="r" 
-                    values="5;6;5" 
-                    dur={`${1.5 + i * 0.1}s`} 
-                    repeatCount="indefinite" 
-                  />
-                </circle>
-                <circle cx={x - 1} cy={y - 1} r="2" fill="#ff4444" opacity="0.8"/>
-              </g>
-            );
-          })}
-
-          <ellipse cx="200" cy="150" rx="50" ry="60" fill="url(#metalGradient)">
-            <animate attributeName="ry" values="60;63;60" dur="3s" repeatCount="indefinite" />
-          </ellipse>
-
-          {[0, 1, 2].map((col) => (
-            <g key={`segment-${col}`}>
-              <rect 
-                x={170 + col * 20} 
-                y="140" 
-                width="15" 
-                height="50" 
-                rx="2" 
-                fill="#2a2a2a"
-              />
-              {[...Array(8)].map((_, i) => (
-                <rect 
-                  key={i}
-                  x={172 + col * 20} 
-                  y={142 + i * 6} 
-                  width="11" 
-                  height="4" 
-                  rx="1" 
-                  fill="#1a1a1a"
-                />
-              ))}
-            </g>
-          ))}
-
-          {[
-            { startX: 160, startY: 180, endX: 80, endY: 450, delay: 0 },
-            { startX: 180, startY: 185, endX: 120, endY: 460, delay: 0.3 },
-            { startX: 200, startY: 190, endX: 180, endY: 480, delay: 0.6 },
-            { startX: 220, startY: 185, endX: 280, endY: 460, delay: 0.9 },
-            { startX: 240, startY: 180, endX: 320, endY: 450, delay: 1.2 },
-          ].map((tentacle, idx) => {
-            const segments = 15;
-            const pathSegments = [];
+        <svg
+          className="absolute top-0 left-0 w-full h-full pointer-events-none"
+          style={{ mixBlendMode: 'screen' }}
+        >
+          <defs>
+            <linearGradient id="cyberGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style={{ stopColor: '#00ffff', stopOpacity: 0.8 }} />
+              <stop offset="50%" style={{ stopColor: '#ff00ff', stopOpacity: 0.6 }} />
+              <stop offset="100%" style={{ stopColor: '#00ffff', stopOpacity: 0.4 }} />
+            </linearGradient>
             
-            for (let i = 0; i <= segments; i++) {
-              const t = i / segments;
-              const x = tentacle.startX + (tentacle.endX - tentacle.startX) * t;
-              const y = tentacle.startY + (tentacle.endY - tentacle.startY) * t;
-              const wave = Math.sin(t * Math.PI * 3) * 15;
-              pathSegments.push(`${i === 0 ? 'M' : 'L'} ${x + wave} ${y}`);
-            }
+            <filter id="neonGlow">
+              <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+              <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+          </defs>
 
+          {[...Array(5)].map((_, i) => {
+            const startY = 20 + i * 15;
             return (
-              <g key={`tentacle-${idx}`}>
-                <path
-                  d={pathSegments.join(' ')}
-                  stroke="url(#metalGradient)"
-                  strokeWidth={20 - idx * 2}
-                  fill="none"
-                  strokeLinecap="round"
-                >
-                  <animate
-                    attributeName="d"
-                    values={`
-                      ${pathSegments.join(' ')};
-                      M ${tentacle.startX} ${tentacle.startY} ${pathSegments.slice(1).map((seg, i) => {
-                        const t = (i + 1) / segments;
-                        const x = tentacle.startX + (tentacle.endX - tentacle.startX) * t;
-                        const y = tentacle.startY + (tentacle.endY - tentacle.startY) * t;
-                        const wave = Math.sin(t * Math.PI * 3 + 0.5) * 20;
-                        return `L ${x + wave} ${y}`;
-                      }).join(' ')};
-                      ${pathSegments.join(' ')}
-                    `}
-                    dur={`${4 + idx * 0.5}s`}
-                    repeatCount="indefinite"
-                    begin={`${tentacle.delay}s`}
-                  />
-                </path>
-
-                {[...Array(12)].map((_, segIdx) => {
-                  const t = segIdx / 12;
-                  const x = tentacle.startX + (tentacle.endX - tentacle.startX) * t;
-                  const y = tentacle.startY + (tentacle.endY - tentacle.startY) * t;
-                  return (
-                    <rect
-                      key={segIdx}
-                      x={x - 6}
-                      y={y}
-                      width="12"
-                      height="8"
-                      rx="2"
-                      fill="#1a1a1a"
-                    >
-                      <animateTransform
-                        attributeName="transform"
-                        type="translate"
-                        values={`0,0; ${Math.sin(segIdx) * 5},0; 0,0`}
-                        dur={`${3 + idx * 0.5}s`}
-                        repeatCount="indefinite"
-                        begin={`${tentacle.delay + segIdx * 0.1}s`}
-                      />
-                    </rect>
-                  );
-                })}
-
-                <path
-                  d={`M ${tentacle.endX - 15} ${tentacle.endY} L ${tentacle.endX} ${tentacle.endY + 15} L ${tentacle.endX + 15} ${tentacle.endY} L ${tentacle.endX} ${tentacle.endY - 5} Z`}
-                  fill="#2a2a2a"
-                  stroke="#1a1a1a"
-                  strokeWidth="2"
-                >
-                  <animateTransform
-                    attributeName="transform"
-                    type="rotate"
-                    values={`0 ${tentacle.endX} ${tentacle.endY}; 5 ${tentacle.endX} ${tentacle.endY}; -5 ${tentacle.endX} ${tentacle.endY}; 0 ${tentacle.endX} ${tentacle.endY}`}
-                    dur={`${2 + idx * 0.3}s`}
-                    repeatCount="indefinite"
-                  />
-                </path>
-              </g>
+              <line
+                key={`scan-${i}`}
+                x1="0"
+                y1={`${startY}%`}
+                x2="100%"
+                y2={`${startY}%`}
+                stroke="url(#cyberGlow)"
+                strokeWidth="2"
+                opacity="0.4"
+                filter="url(#neonGlow)"
+              >
+                <animate
+                  attributeName="y1"
+                  values={`${startY}%;${startY + 60}%;${startY}%`}
+                  dur={`${4 + i * 0.5}s`}
+                  repeatCount="indefinite"
+                />
+                <animate
+                  attributeName="y2"
+                  values={`${startY}%;${startY + 60}%;${startY}%`}
+                  dur={`${4 + i * 0.5}s`}
+                  repeatCount="indefinite"
+                />
+                <animate
+                  attributeName="opacity"
+                  values="0.4;0.8;0.4"
+                  dur={`${4 + i * 0.5}s`}
+                  repeatCount="indefinite"
+                />
+              </line>
             );
           })}
 
-          <ellipse cx="200" cy="130" rx="35" ry="25" fill="#1a1a1a" opacity="0.6"/>
-          
-          <circle cx="185" cy="125" r="6" fill="url(#eyeGlow)" filter="url(#redGlow)">
-            <animate attributeName="opacity" values="1;0.3;1" dur="3s" repeatCount="indefinite" />
+          {[...Array(8)].map((_, i) => {
+            const cx = 30 + (i % 4) * 20;
+            const cy = 20 + Math.floor(i / 4) * 60;
+            return (
+              <circle
+                key={`particle-${i}`}
+                cx={`${cx}%`}
+                cy={`${cy}%`}
+                r="2"
+                fill="#00ffff"
+                opacity="0.6"
+                filter="url(#neonGlow)"
+              >
+                <animate
+                  attributeName="cy"
+                  values={`${cy}%;${cy + 40}%;${cy}%`}
+                  dur={`${3 + i * 0.3}s`}
+                  repeatCount="indefinite"
+                />
+                <animate
+                  attributeName="opacity"
+                  values="0.6;1;0.6"
+                  dur={`${2 + i * 0.2}s`}
+                  repeatCount="indefinite"
+                />
+              </circle>
+            );
+          })}
+
+          <circle
+            cx="70%"
+            cy="25%"
+            r="3"
+            fill="#ff00ff"
+            filter="url(#neonGlow)"
+          >
+            <animate
+              attributeName="r"
+              values="3;5;3"
+              dur="2s"
+              repeatCount="indefinite"
+            />
+            <animate
+              attributeName="opacity"
+              values="0.8;1;0.8"
+              dur="2s"
+              repeatCount="indefinite"
+            />
           </circle>
-          <circle cx="215" cy="125" r="6" fill="url(#eyeGlow)" filter="url(#redGlow)">
-            <animate attributeName="opacity" values="1;0.3;1" dur="3s" begin="0.5s" repeatCount="indefinite" />
+
+          <circle
+            cx="75%"
+            cy="28%"
+            r="2"
+            fill="#00ffff"
+            filter="url(#neonGlow)"
+          >
+            <animate
+              attributeName="r"
+              values="2;4;2"
+              dur="1.8s"
+              repeatCount="indefinite"
+            />
+            <animate
+              attributeName="opacity"
+              values="0.7;1;0.7"
+              dur="1.8s"
+              repeatCount="indefinite"
+            />
           </circle>
-        </g>
-      </svg>
+        </svg>
+
+        {[...Array(3)].map((_, i) => (
+          <div
+            key={`glow-ring-${i}`}
+            className="absolute top-1/4 right-1/4 w-32 h-32 rounded-full border-2 border-cyan-400/20"
+            style={{
+              animation: `expand-ring ${3 + i}s ease-out infinite ${i * 0.8}s`,
+              transformOrigin: 'center'
+            }}
+          />
+        ))}
+      </div>
+
+      <style>{`
+        @keyframes float-android {
+          0%, 100% {
+            transform: translateY(0px) rotate(0deg);
+          }
+          25% {
+            transform: translateY(-10px) rotate(-1deg);
+          }
+          50% {
+            transform: translateY(-5px) rotate(0deg);
+          }
+          75% {
+            transform: translateY(-12px) rotate(1deg);
+          }
+        }
+
+        @keyframes glow-pulse {
+          0%, 100% {
+            opacity: 0.4;
+            transform: scale(1);
+          }
+          50% {
+            opacity: 0.7;
+            transform: scale(1.1);
+          }
+        }
+
+        @keyframes expand-ring {
+          0% {
+            transform: scale(0.5);
+            opacity: 0.6;
+          }
+          100% {
+            transform: scale(2.5);
+            opacity: 0;
+          }
+        }
+      `}</style>
     </div>
   );
 };
