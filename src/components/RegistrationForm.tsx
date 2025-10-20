@@ -2,12 +2,14 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { Checkbox } from '@/components/ui/checkbox';
 import { useToast } from '@/hooks/use-toast';
 import Icon from '@/components/ui/icon';
 
 const RegistrationForm = () => {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
+  const [agreed, setAgreed] = useState(false);
   const [loading, setLoading] = useState(false);
   const { toast } = useToast();
 
@@ -18,6 +20,15 @@ const RegistrationForm = () => {
       toast({
         title: "Ошибка",
         description: "Пожалуйста, заполните все поля",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    if (!agreed) {
+      toast({
+        title: "Ошибка",
+        description: "Необходимо согласиться с политикой конфиденциальности и договором оферты",
         variant: "destructive"
       });
       return;
@@ -43,6 +54,7 @@ const RegistrationForm = () => {
         });
         setName('');
         setPhone('');
+        setAgreed(false);
       } else {
         throw new Error(data.error || 'Ошибка отправки');
       }
@@ -95,10 +107,43 @@ const RegistrationForm = () => {
           />
         </div>
 
+        <div className="flex items-start space-x-3 pt-2">
+          <Checkbox 
+            id="agreement" 
+            checked={agreed}
+            onCheckedChange={(checked) => setAgreed(checked === true)}
+            disabled={loading}
+            className="mt-1"
+          />
+          <Label 
+            htmlFor="agreement" 
+            className="text-sm leading-relaxed cursor-pointer"
+          >
+            Я согласен с{' '}
+            <a 
+              href="https://docs.google.com/document/d/1pUdq_l-CkxX0Nwlj8rlnrhvBbHuRr0aSPjPTm-6D6SY/edit?usp=sharing" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-primary hover:underline"
+            >
+              политикой конфиденциальности
+            </a>
+            {' '}и{' '}
+            <a 
+              href="https://docs.google.com/document/d/1Dp63AC8s0WIX2BtGBcIArMHLJNXMSmckfsuJsRvqHJU/edit?usp=sharing" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-primary hover:underline"
+            >
+              договором оферты
+            </a>
+          </Label>
+        </div>
+
         <Button 
           type="submit" 
           className="w-full h-11 text-base font-semibold"
-          disabled={loading}
+          disabled={loading || !agreed}
         >
           {loading ? (
             <>
@@ -113,10 +158,6 @@ const RegistrationForm = () => {
           )}
         </Button>
       </form>
-
-      <p className="text-xs text-muted-foreground text-center mt-6">
-        Нажимая кнопку, вы соглашаетесь с обработкой персональных данных
-      </p>
     </div>
   );
 };
