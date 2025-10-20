@@ -83,7 +83,7 @@ const HeroSection = ({ isVisible, timeLeft }: HeroSectionProps) => {
           Узнайте, как нейросети увеличивают продажи и экономят время: присоединяйтесь 21 октября в 19:00
         </p>
         
-        <div className="flex flex-wrap gap-4 justify-center mb-12">
+        <div className="flex flex-wrap gap-4 justify-center mb-8">
           {[
             { value: timeLeft.days, label: 'дней' },
             { value: timeLeft.hours, label: 'часов' },
@@ -97,6 +97,14 @@ const HeroSection = ({ isVisible, timeLeft }: HeroSectionProps) => {
               </CardContent>
             </Card>
           ))}
+        </div>
+        
+        <div className="mb-12 px-4">
+          <div className="inline-block bg-gradient-to-r from-secondary/20 via-primary/20 to-secondary/20 backdrop-blur-sm border-2 border-primary/40 rounded-lg px-6 py-4 shadow-lg">
+            <p className="text-lg md:text-xl font-semibold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+              При поддержке Центра Развития Предпринимательства Владивостока
+            </p>
+          </div>
         </div>
         
         <Button 
