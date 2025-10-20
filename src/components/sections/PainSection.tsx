@@ -15,7 +15,14 @@ const PainSection = () => {
             </blockquote>
           </div>
           <div className="relative">
-            <div className="bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl p-8 backdrop-blur">
+            <div className="bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl p-8 backdrop-blur relative overflow-hidden">
+              <div className="absolute top-4 right-4 w-20 h-20 opacity-20">
+                <img 
+                  src="https://cdn.poehali.dev/projects/aff0e44d-d3b8-409d-a0c0-47792caed443/files/112a267c-172f-4fdf-8a79-6b9740cd7150.jpg" 
+                  alt="Time loss" 
+                  className="w-full h-full object-contain"
+                />
+              </div>
               <Icon name="TrendingDown" size={64} className="text-primary mb-4 animate-arrow-down" />
               <div className="space-y-4">
                 {['Ручной анализ данных', 'Рутинная отчётность', 'Медленные процессы'].map((item, idx) => (
