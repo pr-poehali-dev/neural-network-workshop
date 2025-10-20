@@ -6,10 +6,6 @@ const PainSection = () => {
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6 animate-fade-in">
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-red-500/20 to-orange-500/20 border-2 border-red-500/50 px-4 py-2 rounded-lg mb-4">
-              <Icon name="AlertTriangle" className="text-red-500" size={24} />
-              <span className="text-red-500 font-bold text-lg uppercase tracking-wider">РИСК</span>
-            </div>
             <h2 className="text-4xl md:text-5xl font-bold">Каждый день вы теряете время и деньги на рутину</h2>
             <p className="text-lg text-muted-foreground">
               Предприниматели тратят до 40% рабочего времени на ручные задачи и анализ. Наш клиент Михаил терял 5 часов в неделю на отчёты.
