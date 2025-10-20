@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import Icon from '@/components/ui/icon';
+import RegistrationForm from '@/components/RegistrationForm';
 
 const RegisterSection = () => {
   const [registered, setRegistered] = useState(0);
@@ -47,16 +47,9 @@ const RegisterSection = () => {
                 <span>Осталось мест: <strong>{spotsLeft}</strong></span>
               </div>
             </div>
-            <Button 
-              size="lg" 
-              className="text-base md:text-xl px-6 py-6 md:px-12 md:py-8 animate-pulse-glow bg-primary hover:bg-primary/90 w-full sm:w-auto"
-              asChild
-            >
-              <a href="https://t.me/chernikovpsiholog" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center">
-                Зарегистрироваться бесплатно
-                <Icon name="ArrowRight" className="ml-2" size={20} />
-              </a>
-            </Button>
+            
+            <RegistrationForm />
+
             <p className="text-sm text-muted-foreground mt-6 flex items-center justify-center gap-2">
               <span>После регистрации вы мгновенно получите свой подарок</span>
               <span className="relative inline-block">

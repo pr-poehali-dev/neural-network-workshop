@@ -1,0 +1,40 @@
+{
+  "tests": [
+    {
+      "name": "Handle OPTIONS request",
+      "method": "OPTIONS",
+      "path": "/",
+      "expectedStatus": 200,
+      "expectedBody": "",
+      "bodyMatcher": "exact"
+    },
+    {
+      "name": "Reject empty name",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "name": "",
+        "phone": "+79991234567"
+      },
+      "expectedStatus": 400,
+      "expectedBody": {
+        "error": "string"
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Reject empty phone",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "name": "Иван",
+        "phone": ""
+      },
+      "expectedStatus": 400,
+      "expectedBody": {
+        "error": "string"
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}
