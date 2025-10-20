@@ -102,12 +102,10 @@ const HeroSection = ({ isVisible, timeLeft }: HeroSectionProps) => {
         <Button 
           size="lg" 
           className="text-lg px-8 py-6 animate-pulse-glow bg-primary hover:bg-primary/90"
-          asChild
+          onClick={() => document.getElementById('register')?.scrollIntoView({ behavior: 'smooth' })}
         >
-          <a href="https://t.me/chernikovpsiholog" target="_blank" rel="noopener noreferrer">
-            Зарегистрироваться бесплатно
-            <Icon name="ArrowRight" className="ml-2" />
-          </a>
+          Зарегистрироваться бесплатно
+          <Icon name="ArrowRight" className="ml-2" />
         </Button>
         
         <div className="mt-8 flex flex-col md:flex-row items-center justify-center gap-3 md:gap-4 text-sm text-muted-foreground">

@@ -40,12 +40,10 @@ const HopeSection = () => {
             <Button 
               size="lg" 
               className="bg-secondary hover:bg-secondary/90"
-              asChild
+              onClick={() => document.getElementById('register')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              <a href="https://t.me/chernikovpsiholog" target="_blank" rel="noopener noreferrer">
-                Узнать подробнее
-                <Icon name="ArrowRight" className="ml-2" />
-              </a>
+              Зарегистрироваться
+              <Icon name="ArrowRight" className="ml-2" />
             </Button>
           </div>
         </div>
