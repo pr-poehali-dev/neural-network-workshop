@@ -21,11 +21,25 @@
       "method": "POST",
       "path": "/",
       "body": {
-        "phone": "+7 999 123-45-67"
+        "email": "test@example.com"
       },
       "expectedStatus": 400,
       "expectedBody": {
         "error": "string"
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Submit with name and phone only",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "name": "Тест",
+        "phone": "+7 999 111-22-33"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "success": true
       },
       "bodyMatcher": "partial"
     }

@@ -35,18 +35,18 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
     
     body_data = json.loads(event.get('body', '{}'))
     name = body_data.get('name', '')
-    email = body_data.get('email', '')
+    email = body_data.get('email', 'noemail@example.com')
     phone = body_data.get('phone', '')
     message = body_data.get('message', '')
     
-    if not name or not email:
+    if not name or not phone:
         return {
             'statusCode': 400,
             'headers': {
                 'Content-Type': 'application/json',
                 'Access-Control-Allow-Origin': '*'
             },
-            'body': json.dumps({'error': 'Name and email are required'})
+            'body': json.dumps({'error': 'Name and phone are required'})
         }
     
     database_url = os.environ.get('DATABASE_URL')

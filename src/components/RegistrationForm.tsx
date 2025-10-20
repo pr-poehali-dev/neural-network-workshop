@@ -45,7 +45,6 @@ const RegistrationForm = () => {
         body: JSON.stringify({ 
           name, 
           phone,
-          email: '',
           message: 'Регистрация на мастер-класс'
         })
       });
