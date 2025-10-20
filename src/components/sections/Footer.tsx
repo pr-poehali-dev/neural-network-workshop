@@ -37,6 +37,24 @@ const Footer = () => {
           </div>
         </div>
         <div className="mt-8 pt-8 border-t border-border text-center text-muted-foreground">
+          <div className="flex flex-wrap justify-center gap-4 md:gap-6 mb-4">
+            <a 
+              href="https://docs.google.com/document/d/1Dp63AC8s0WIX2BtGBcIArMHLJNXMSmckfsuJsRvqHJU/edit?usp=sharing" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hover:text-primary transition-colors underline"
+            >
+              Договор Оферты
+            </a>
+            <a 
+              href="https://docs.google.com/document/d/1pUdq_l-CkxX0Nwlj8rlnrhvBbHuRr0aSPjPTm-6D6SY/edit?usp=sharing" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hover:text-primary transition-colors underline"
+            >
+              Политика конфиденциальности
+            </a>
+          </div>
           <p>&copy; 2025 Neural School. Все права защищены.</p>
         </div>
       </div>
