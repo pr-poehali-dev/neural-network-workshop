@@ -26,7 +26,7 @@ const RegistrationForm = () => {
     setLoading(true);
 
     try {
-      const response = await fetch('/api/send-registration', {
+      const response = await fetch('https://functions.poehali.dev/c7fdb8e0-db69-4484-a14b-71743390a7d4', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
