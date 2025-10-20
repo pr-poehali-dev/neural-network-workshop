@@ -51,7 +51,7 @@ const RegisterSection = () => {
             <RegistrationForm />
 
             <p className="text-sm text-muted-foreground mt-6 flex items-center justify-center gap-2">
-              <span>После регистрации вы мгновенно получите свой подарок</span>
+              <span>Подарок получат все, кто пришел на МК</span>
               <span className="relative inline-block">
                 <Icon 
                   name="Gift" 
