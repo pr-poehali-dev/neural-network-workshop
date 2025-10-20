@@ -2,6 +2,8 @@ import json
 import os
 import psycopg2
 import smtplib
+import urllib.request
+import urllib.parse
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from typing import Dict, Any
@@ -67,6 +69,29 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
     
     cur.close()
     conn.close()
+    
+    try:
+        telegram_token = os.environ.get('TELEGRAM_BOT_TOKEN')
+        telegram_chat_id = os.environ.get('TELEGRAM_CHAT_ID')
+        
+        if telegram_token and telegram_chat_id:
+            telegram_message = f"""🔔 <b>Новая заявка #{application_id}</b>
+
+👤 <b>Имя:</b> {name}
+📞 <b>Телефон:</b> {phone}
+💬 <b>Сообщение:</b> {message if message else 'Не указано'}"""
+            
+            telegram_url = f"https://api.telegram.org/bot{telegram_token}/sendMessage"
+            telegram_data = urllib.parse.urlencode({
+                'chat_id': telegram_chat_id,
+                'text': telegram_message,
+                'parse_mode': 'HTML'
+            }).encode('utf-8')
+            
+            telegram_request = urllib.request.Request(telegram_url, data=telegram_data)
+            urllib.request.urlopen(telegram_request)
+    except Exception as e:
+        pass
     
     try:
         gmail_user = os.environ.get('GMAIL_USER')
