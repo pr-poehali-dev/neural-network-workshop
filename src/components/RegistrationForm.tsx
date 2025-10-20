@@ -37,12 +37,17 @@ const RegistrationForm = () => {
     setLoading(true);
 
     try {
-      const response = await fetch('https://functions.poehali.dev/c7fdb8e0-db69-4484-a14b-71743390a7d4', {
+      const response = await fetch('https://functions.poehali.dev/9ea188c2-fb3e-49ba-ac12-5898637d63c0', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ name, phone })
+        body: JSON.stringify({ 
+          name, 
+          phone,
+          email: '',
+          message: 'Регистрация на мастер-класс'
+        })
       });
 
       const data = await response.json();
