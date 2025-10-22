@@ -21,7 +21,7 @@ const Index = () => {
   useEffect(() => {
     setIsVisible(true);
     
-    const eventDate = new Date('2025-10-21T19:00:00+10:00');
+    const eventDate = new Date('2025-10-28T19:00:00+10:00');
     const timer = setInterval(() => {
       const now = new Date();
       const diff = eventDate.getTime() - now.getTime();

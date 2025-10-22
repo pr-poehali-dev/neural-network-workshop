@@ -80,7 +80,7 @@ const HeroSection = ({ isVisible, timeLeft }: HeroSectionProps) => {
           заработка и продвижения
         </div>
         <p className="text-xl md:text-2xl mb-8 text-muted-foreground max-w-3xl mx-auto">
-          Узнайте, как нейросети увеличивают продажи и экономят время: присоединяйтесь 21 октября в 19:00
+          Узнайте, как нейросети увеличивают продажи и экономят время: присоединяйтесь 28 октября в 19:00
         </p>
         
         <div className="flex flex-wrap gap-4 justify-center mb-8">
@@ -123,7 +123,7 @@ const HeroSection = ({ isVisible, timeLeft }: HeroSectionProps) => {
           </div>
           <div className="flex items-center gap-2">
             <Icon name="Calendar" size={20} className="flex-shrink-0" />
-            <span>21 октября, 19:00</span>
+            <span>28 октября, 19:00</span>
           </div>
         </div>
       </div>
