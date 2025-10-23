@@ -14,7 +14,7 @@ const LocationSection = () => {
         <div className="max-w-6xl mx-auto">
           <div className="relative w-full h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-2xl border-2 border-primary/20">
             <iframe
-              src="https://yandex.ru/map-widget/v1/?ll=131.913193%2C43.115608&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgg1NjgyNzk1MBKFAdCg0L7RgdGB0LjRjywg0J_RgNC40LzQvtGA0YHQutC40Lkg0LrRgNCw0LksINCS0LvQsNC00LjQstC-0YHRgtC-0LosINCf0LDRgNGC0LjQt9Cw0L3RgdC60LjQuSDQv9GA0L7RgdC_0LXQutGCLCA0NOKChDEwIgosKe6kIz_g5EVBETnVPa8g6V1AKAE&z=16.89"
+              src="https://yandex.ru/map-widget/v1/?ll=131.902080%2C43.127437&z=16&pt=131.902080,43.127437,pm2rdm"
               width="100%"
               height="100%"
               frameBorder="0"
