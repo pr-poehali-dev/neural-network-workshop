@@ -10,6 +10,7 @@ import ProgramSection from '@/components/sections/ProgramSection';
 import TestimonialsSection from '@/components/sections/TestimonialsSection';
 import FAQSection from '@/components/sections/FAQSection';
 import RegisterSection from '@/components/sections/RegisterSection';
+import LocationSection from '@/components/sections/LocationSection';
 import Footer from '@/components/sections/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import MatrixSentinel from '@/components/MatrixSentinel';
@@ -57,6 +58,7 @@ const Index = () => {
       <TestimonialsSection />
       <FAQSection />
       <RegisterSection />
+      <LocationSection />
       <Footer />
       <WhatsAppButton />
     </div>
