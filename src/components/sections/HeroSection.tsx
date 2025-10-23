@@ -99,12 +99,12 @@ const HeroSection = ({ isVisible, timeLeft }: HeroSectionProps) => {
           ))}
         </div>
         
-        <div className="mb-12 px-4">
-          <div className="inline-flex flex-col md:flex-row items-center gap-4 bg-gradient-to-r from-secondary/20 via-primary/20 to-secondary/20 backdrop-blur-sm border-2 border-primary/40 rounded-lg px-6 py-4 shadow-lg">
+        <div className="mb-12 px-4 animate-slide-up-fade" style={{ animationDelay: '0.5s', animationFillMode: 'both' }}>
+          <div className="inline-flex flex-col md:flex-row items-center gap-4 bg-gradient-to-r from-secondary/20 via-primary/20 to-secondary/20 backdrop-blur-sm border-2 border-primary/40 rounded-lg px-6 py-4 shadow-lg animate-glow-pulse hover:scale-105 transition-transform duration-300">
             <img 
               src="https://cdn.poehali.dev/files/d3692b72-4e5f-4995-963c-ea30dddc5a61.png" 
               alt="Центр Развития Предпринимательства"
-              className="h-16 md:h-20 w-auto object-contain"
+              className="h-16 md:h-20 w-auto object-contain animate-logo-bounce"
             />
             <p className="text-base md:text-lg font-semibold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent text-center md:text-left">
               При поддержке Центра Развития<br className="hidden md:block" /> Предпринимательства Владивостока
