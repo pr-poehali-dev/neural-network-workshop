@@ -98,6 +98,33 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
     
     msg.attach(MIMEText(html_content, 'html'))
     
+    # Send to Telegram
+    telegram_sent = False
+    telegram_bot_token = os.environ.get('TELEGRAM_BOT_TOKEN')
+    telegram_chat_id = os.environ.get('TELEGRAM_CHAT_ID')
+    
+    if telegram_bot_token and telegram_chat_id:
+        try:
+            import requests
+            telegram_message = (
+                f"🎯 <b>Новая заявка с сайта</b>\n\n"
+                f"<b>Имя:</b> {name}\n"
+                f"<b>Телефон:</b> {phone}"
+            )
+            
+            send_url = f"https://api.telegram.org/bot{telegram_bot_token}/sendMessage"
+            payload = {
+                'chat_id': telegram_chat_id,
+                'text': telegram_message,
+                'parse_mode': 'HTML'
+            }
+            
+            response = requests.post(send_url, json=payload, timeout=10)
+            if response.status_code == 200:
+                telegram_sent = True
+        except:
+            pass
+    
     try:
         with smtplib.SMTP_SSL('smtp.gmail.com', 465) as server:
             server.login(gmail_user, gmail_app_password)
@@ -110,7 +137,11 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
                 'Access-Control-Allow-Origin': '*'
             },
             'isBase64Encoded': False,
-            'body': json.dumps({'success': True, 'message': 'Заявка отправлена'})
+            'body': json.dumps({
+                'success': True, 
+                'message': 'Заявка отправлена',
+                'telegram_sent': telegram_sent
+            })
         }
     except Exception as e:
         return {
