@@ -1,0 +1,36 @@
+{
+  "tests": [
+    {
+      "name": "Handle /start command",
+      "method": "POST",
+      "body": {
+        "message": {
+          "chat": {"id": 123456789},
+          "text": "/start",
+          "from": {"first_name": "Тестовый"}
+        }
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "ok": true
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Handle user message",
+      "method": "POST",
+      "body": {
+        "message": {
+          "chat": {"id": 123456789},
+          "text": "Хочу оставить заявку",
+          "from": {"first_name": "Клиент"}
+        }
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "ok": true
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}

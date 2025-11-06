@@ -13,6 +13,7 @@ import RegisterSection from '@/components/sections/RegisterSection';
 import LocationSection from '@/components/sections/LocationSection';
 import Footer from '@/components/sections/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
+import TelegramButton from '@/components/TelegramButton';
 import MatrixSentinel from '@/components/MatrixSentinel';
 
 const Index = () => {
@@ -61,6 +62,7 @@ const Index = () => {
       <LocationSection />
       <Footer />
       <WhatsAppButton />
+      <TelegramButton />
     </div>
   );
 };
